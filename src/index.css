@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #E7F6FF;
+  background-color: #e7f6ff;
 }
 
 .App {
@@ -20,6 +20,7 @@ body {
 a {
   text-decoration: none;
   color: #000000;
+  pointer-events: none;
 }
 
 ul {
@@ -35,6 +36,21 @@ img {
   font-size: 50px;
 }
 
+.h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #9dd458;
+  border-radius: 18px;
+}
+
+button {
+  cursor: pointer;
+}
+
 .container {
   background-color: #fff;
   max-width: 960px;
@@ -43,6 +59,130 @@ img {
 
 .section-outter {
   padding: 0 20px;
+}
+
+.drawer {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 325px;
+  right: 0;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 0 32px 0 32px;
+}
+.drawer .h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-left: 32px;
+  margin-bottom: 32px;
+}
+.drawer .h2 img {
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.cartCards {
+  display: flex;
+  flex: 0.99;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.cartCardsItem {
+  display: flex;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  padding: 20px;
+}
+.cartCardsItem + .cartCardsItem {
+  margin-top: 20px;
+}
+.cartCardsItem .itemImg {
+  margin-right: 20px;
+}
+.cartCardsItem .itemWrapper {
+  max-width: 152px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-right: 12px;
+}
+.cartCardsItem .itemName {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+.cartCardsItem .price {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+.cartCardsItem .itemDeleteButton {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding-top: 40px;
+}
+
+.orderInfo div {
+  position: relative;
+  top: -3px;
+  display: flex;
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px dashed #dfdfdf;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.orderInfo li {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+.orderInfo li:last-child {
+  margin-bottom: 0px;
+}
+.orderInfo li span {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+.orderInfo li b {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.orderCompleteButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+}
+.orderCompleteButton svg {
+  position: absolute;
+  left: 288px;
 }
 
 .section-header {
@@ -75,10 +215,13 @@ img {
 .headerTitleText {
   font-size: 14px;
   font-weight: 400;
-  color: #5C5C5C;
+  color: #5c5c5c;
 }
 .headerRightList {
   display: flex;
+}
+.headerItem {
+  cursor: pointer;
 }
 .headerItem a {
   display: flex;
@@ -93,13 +236,23 @@ img {
 .headerItemText {
   font-size: 14px;
   font-weight: 400;
-  color: #5C5C5C;
+  color: #5c5c5c;
 }
 
 .catalogTopWrapper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
+}
+.catalogTopWrapper .topWrapper {
+  position: relative;
+}
+.catalogTopWrapper .topWrapper .deleteSeacrh {
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
 
 .h1 {
@@ -114,10 +267,10 @@ img {
   font-size: 16px;
   font-weight: 400;
   border-radius: 10px;
-  border: 2px solid #F3F3F3;
+  border: 2px solid #f3f3f3;
   padding: 12px 64px 16px 48px;
   background: white url(img/loop.svg) left no-repeat;
-  background-position: 20px;
+  background-position: 20px, 16px;
 }
 
 input {
@@ -127,53 +280,5 @@ input {
 .catalogFlex {
   display: flex;
   justify-content: space-between;
-}
-
-.catalogItem {
-  display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column;
-  width: 212px;
-  border: 1px solid #F3F3F3;
-  border-radius: 40px;
-  margin-bottom: 16px;
-}
-.catalogItemName {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  color: #000000;
-  font-size: 14px;
-  max-width: 152px;
-  margin-bottom: 16px;
-}
-.catalogItemBottomWrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 152px;
-  margin-bottom: 36px;
-}
-.catalogItemPriceWrapper {
-  display: flex;
-  flex-direction: column;
-}
-.catalogItemPriceWrapper b {
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #BDBDBD;
-}
-.catalogItemPrice {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: #000000;
-}
-.catalogItem button {
-  border: 1px solid #F2F2F2;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  padding: 10px;
-  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */
