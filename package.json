@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "axios": "^1.7.3"
+=======
   "name": "react-sneakers",
   "version": "0.1.0",
   "private": true,
@@ -35,5 +39,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+>>>>>>> e338b1c27c5080458f21ab5627f26b37ce7492a8
   }
 }
